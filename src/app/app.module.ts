@@ -12,6 +12,11 @@ import { CharactersComponent } from './characters/characters.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { FormsModule } from '@angular/forms';
+import { SomeComponent } from './some/some.component';
+import { BsModalRef } from 'ngx-bootstrap/modal';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -20,7 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     ListmarvelComponent,
     CharacterComponent,
-    CharactersComponent  
+    CharactersComponent,
+    SomeComponent,
+    FilterPipe  
   ],
   imports: [
     BrowserModule,
@@ -28,9 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    ModalModule.forRoot(),
+    FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [  BsModalRef],
+  bootstrap: [AppComponent],
+  entryComponents: [ SomeComponent ]
 })
 export class AppModule { }

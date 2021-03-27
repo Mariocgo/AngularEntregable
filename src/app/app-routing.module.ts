@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {path:'marvel',component: CharactersComponent},
   {path: "**", component: HomeComponent}
+  
 ];
 
 @NgModule({

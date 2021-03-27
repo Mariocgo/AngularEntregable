@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CharactersApiService } from './character/shared/characters-api.service';
 import { Observable } from 'rxjs';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal';
+import { SomeComponent } from '../some/some.component';
 
 @Component({
   selector: 'app-characters',
@@ -9,7 +12,15 @@ import { Observable } from 'rxjs';
 })
 export class CharactersComponent implements OnInit {
 
-  constructor(private characterSvc: CharactersApiService) { }
+character: String;
+template: String;
+modalRef: BsModalRef; 
+filtro= '';
+
+  constructor(
+    private characterSvc: CharactersApiService,
+    private modalService: BsModalService
+    ) { }
 
   allCharacters: Observable<any>;
 
@@ -20,5 +31,13 @@ export class CharactersComponent implements OnInit {
   getCharacters(){
     this.allCharacters = this.characterSvc.getAllCharacters();
   }
-
+  openModal(name: string, modified: string) {
+    this.modalRef = this.modalService.show(SomeComponent,  {
+      initialState: {
+        //para poder usarlo
+        title: name,
+        modified: modified 
+      }
+    });
+  }
 }
