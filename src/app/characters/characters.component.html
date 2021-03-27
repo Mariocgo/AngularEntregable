@@ -1,27 +1,33 @@
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+<div class="form-group">
+    <label for="exampleInputEmail1">Busca algun personaje</label>
     <input type="email" [(ngModel)]="filtro" name="filtro"
-    class="form-control" id="filtro" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-
+    class="form-control" id="filtro" placeholder="Buscar ahora">
+    <small  class="form-text text-muted">Encuentra a tu personaje favorito.</small>
+</div>
 
 <div fxFlex fxLayout="column">
   <div fxLayout="row wrap">
     <div class="card text-center card bg-dark text-white mb-1 p-2 mb-1 text-white"
      fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column"
       *ngFor="let character of allCharacters | async | filter:filtro" style="padding: 5px; width: 18rem;">
+        <img mat-card-image src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" 
+          alt="{{character.name}}">
+        <h2 class="card-title" style="color: white;"> {{character.name}}</h2>
+        <a href="{{character.urls[0].url}}" class="btn btn-primary" 
+          style="background-color: #C02740;">Más información oficial</a> 
 
-                <img mat-card-image src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" 
-                alt="{{character.name}}">
-                <h2 class="card-title" style="color: white;"> {{character.name}}</h2>
-                  <a href="{{character.urls[0].url}}" class="btn btn-primary" 
-                  style="background-color: #C02740;">Más información oficial</a> 
-                  <button type="button" class="btn btn-primary" 
-                  (click)="openModal(character.name,character.modified)" data-target="Modal">
-                    Ver más información
-                  </button>     
+        <button type="button" class="btn btn-primary" (click)="openModal(
+          character.name,
+          character.modified,
+          character.resourceURI,
+          character.id,
+          character.comics,
+          character.series
+          )"
+          data-target="Modal">
+        Ver más información
+        </button>
+       
       </div>
 </div>
 

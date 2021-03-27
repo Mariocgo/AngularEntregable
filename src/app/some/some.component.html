@@ -4,6 +4,18 @@
       <span aria-hidden="true">&times;</span>
     </button>
 </div>
+
 <div class="modal-body">
- <h4>Fecha más reciente en la que se modifico el archivo</h4>	{{modified|date}}
+ <h3>Fecha más reciente en la que se modifico el archivo</h3>	<h4>{{modified|date }}</h4>
+ <h3>ID del personaje</h3><h4>{{id}}</h4>
+ <h3>Recurso ID</h3><h4>{{resourceURI}}</h4>
+ <h3>Comics en los que aparece</h3>
+ <div *ngFor="let item of comics.items">
+  {{item.name|json}}
+</div>
+<br>
+ <h3>Series en las que aparece </h3>
+ <div *ngFor="let item of series.items">
+  {{item.name |json}}
+</div>
 </div>

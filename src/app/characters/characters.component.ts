@@ -31,13 +31,18 @@ filtro= '';
   getCharacters(){
     this.allCharacters = this.characterSvc.getAllCharacters();
   }
-  openModal(name: string, modified: string) {
+  openModal(name: string, modified: string,resourceURI: string,id : string, series: string, comics: string) {
     this.modalRef = this.modalService.show(SomeComponent,  {
       initialState: {
         //para poder usarlo
         title: name,
-        modified: modified 
+        modified: modified,
+        resourceURI: resourceURI,
+        id: id,
+        comics: comics,
+        series: series 
       }
     });
   }
+  
 }

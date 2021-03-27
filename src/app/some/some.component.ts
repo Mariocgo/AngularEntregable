@@ -11,11 +11,21 @@ export class SomeComponent implements OnInit {
   //Son las variables que asignare
   title;
   modified;
+  resourceURI;
+  id;
+  comics;
+  series;
   constructor(
     public modalRef: BsModalRef
   ) { }
 
+  mappedArray = [];
+
   ngOnInit(): void {
+    
   }
+
+
+
 
 }

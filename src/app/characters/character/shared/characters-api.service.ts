@@ -10,7 +10,7 @@ export class CharactersApiService {
   
   PUBLIC_KEY = 'b69e6e953f0e21e9cb30077718d76360';
   HASH = '43fc6b7c0fea87ed037a6ab72b99b294';
-  URL_API = ` https://gateway.marvel.com/v1/public/characters?orderBy=name&apikey=${this.PUBLIC_KEY}&hash=${this.HASH}`;
+  URL_API = ` https://gateway.marvel.com/v1/public/characters?&apikey=${this.PUBLIC_KEY}&hash=${this.HASH}`;
   
  
 
@@ -18,7 +18,8 @@ export class CharactersApiService {
 
   getAllCharacters(): Observable<any> {
     return this.http.get<any>(this.URL_API)
-    .pipe(map((data: any) => data.data.results))
+    .pipe(map((data: any) => {console.log(typeof(data))
+    return data.data.results}))
 
   }
 }
