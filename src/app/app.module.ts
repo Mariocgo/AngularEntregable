@@ -13,10 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SomeComponent } from './some/some.component';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FilterPipe } from './pipes/filter.pipe';
+
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     CharacterComponent,
     CharactersComponent,
     SomeComponent,
-    FilterPipe  
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     BrowserAnimationsModule,
     MatCardModule,
     ModalModule.forRoot(),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+  
   ],
   providers: [  BsModalRef],
   bootstrap: [AppComponent],

@@ -1,0 +1,23 @@
+<div class="container">
+    <form [formGroup]="miformulario">
+       <p>Usuario:</p> <input 
+       [class.is-invalid]="miformulario.get('username').touched && miformulario.get('username').invalid"
+       type="text" 
+       class="form-control" 
+       placeholder="Ingresa tu usuario"
+       formControlName="username">
+       <p>Password:</p> <input 
+       [class.is-invalid]="miformulario.get('pass').touched && miformulario.get('pass').invalid"
+       type="password" 
+       class="form-control" 
+       placeholder="Ingresa tu contraseña"
+       formControlName="pass"><br /> 
+       <button class="btn btn-primary" type="submit"
+        (click)="onSubmit()" routerLink="marvel">Enviar</button>
+    </form>
+</div>
+
+<br>
+<div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+  </div>

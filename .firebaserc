@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mario-45651": {
+      "hosting": {
+        "marvelApp": [
+          "mario-45651"
+        ]
+      }
+    }
+  }
+}
